@@ -208,9 +208,11 @@ def test_single_metric_tensor_return(experiment):
 def test_source_provenance_matches_installed_original():
     root = Path(__file__).parents[1]
     manifest = json.loads((root / "PROVENANCE.json").read_text(encoding="utf-8"))
-    actual = hashlib.sha256(Path(upstream.__file__).read_bytes()).hexdigest()
-    vendored = hashlib.sha256((root / "vendor/transformerlens/patching.py").read_bytes()).hexdigest()
-    assert actual == vendored == manifest["source_sha256"]
+    actual = Path(upstream.__file__).read_bytes()
+    vendored = (root / "vendor/transformerlens/patching.py").read_bytes()
+    assert hashlib.sha256(vendored).hexdigest() == manifest["source_sha256"]
+    # minimalism: allow only Git's CRLF/LF representation; retain the exact vendor hash.
+    assert actual.replace(b"\r\n", b"\n") == vendored.replace(b"\r\n", b"\n")
 
 
 def test_fp64_noise_batch_only_and_patch_numerics():
