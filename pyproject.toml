@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "activation-intervention-lab"
+version = "0.1.0"
+description = "Bounded residual activation patch sweeps with serial parity and offline reports"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE", "vendor/transformerlens/LICENSE"]
+dependencies = [
+  "transformer-lens @ git+https://github.com/TransformerLensOrg/TransformerLens.git@bd55eab6737584685b921fdfcd15f191579e64b1",
+  "psutil>=7,<8",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10", "build>=1,<2"]
+
+[project.scripts]
+activation-lab = "activation_intervention_lab.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+

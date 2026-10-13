@@ -1,0 +1,6 @@
+include LICENSE README.md PROVENANCE.json THIRD_PARTY.md DESIGN.md VALIDATION.md constraints-verified.txt
+recursive-include vendor *.py *.txt LICENSE
+recursive-include tests *.py
+recursive-include examples *.html *.json
+recursive-include docs *.md *.png
+global-exclude __pycache__ *.pyc

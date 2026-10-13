@@ -1,0 +1,20 @@
+{
+  "repository": "https://github.com/TransformerLensOrg/TransformerLens",
+  "commit": "bd55eab6737584685b921fdfcd15f191579e64b1",
+  "license": "MIT",
+  "source_path": "transformer_lens/patching.py",
+  "source_sha256": "1128cb944edafd1f1be42386a2335128bd96de7e8891aee1fb294b42a74536b4",
+  "original_function_lines": [
+    381,
+    566
+  ],
+  "original_function_sha256": "84677e27f67374b4fa7cf45b4f5281ae4484e86907444da9a93296650c476e10",
+  "copied_core": "src/activation_intervention_lab/_core.py",
+  "immutable_full_copy": "vendor/transformerlens/patching.py",
+  "baseline": "unmodified serial function exercised before copied core creation",
+  "model": {
+    "id": "EleutherAI/pythia-14m",
+    "revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+    "license": "Apache-2.0"
+  }
+}
